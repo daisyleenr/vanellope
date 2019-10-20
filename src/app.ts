@@ -3,8 +3,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
+import usersRouter from './controllers/UserController';
 
 const app = express();
 
@@ -14,7 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', (req, res) => {
+  res.status(200).send({message: 'hello world'});
+});
 
-module.exports = app;
+export default app;

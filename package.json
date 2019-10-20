@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon --exec babel-node --delay 2 ./bin/www"
+    "build": "tsc",
+    "start": "node dist/server",
+    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.test.ts' --exec 'ts-node' src/server.ts"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,9 +14,13 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/node": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "nodemon": "^1.19.3"
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.1",
+    "@types/morgan": "^1.7.37",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.3",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   }
 }
