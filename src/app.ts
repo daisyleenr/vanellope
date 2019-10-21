@@ -3,7 +3,6 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import indexController from './controllers/indexController';
 import userController from './controllers/userController';
 import moodController from './controllers/moodController';
 
@@ -15,7 +14,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexController);
+app.use('/', (req, res, next) => {
+  res.send({ message: 'hello world' });
+});
 app.use('/users', userController);
 app.use('/moods', moodController);
 
