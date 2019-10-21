@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server",
+    "test": "SERVER_PORT=18080 jest",
     "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.test.ts' --exec 'ts-node' src/server.ts"
   },
   "dependencies": {
@@ -16,9 +17,12 @@
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.19",
     "@types/morgan": "^1.7.37",
+    "@types/supertest": "^2.0.8",
     "jest": "^24.9.0",
     "nodemon": "^1.19.3",
+    "supertest": "^4.0.2",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4"
