@@ -1,9 +1,5 @@
-import { Router } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
-const router = Router();
-
-router.get('/', (req, res, next) => {
+export const getMoods = (req: Request, res: Response, next: NextFunction) => {
   res.send({ moods: [] });
-});
-
-export default router;
+};
