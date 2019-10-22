@@ -3,7 +3,8 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import usersRouter from './controllers/UserController';
+import userRouter from './routers/userRouter';
+import moodRouter from './routers/moodRouter';
 
 const app = express();
 
@@ -13,9 +14,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', usersRouter);
-app.use('/', (req, res) => {
-  res.status(200).send({message: 'hello world'});
+app.use('/', (req, res, next) => {
+  res.send({ message: 'hello world' });
 });
+app.use('/users', userRouter);
+app.use('/moods', moodRouter);
 
 export default app;
