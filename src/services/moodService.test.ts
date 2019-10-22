@@ -15,13 +15,17 @@ describe('MoodService', () => {
     });
 
     describe('with some moods', () => {
+      const TEST_MEMO = 'hello';
+      const TEST_SCORE = 5;
+
       beforeAll(() => {
-        moodService.addMood(new Mood(5, 'hello'));
+        const testMood = new Mood(TEST_SCORE, TEST_MEMO);
+        moodService.createMood(testMood);
       });
 
       it('returns all moods', () => {
         const moods = moodService.getMoods();
-        expect(moods[0].memo).toBe('hello');
+        expect(moods[0].memo).toBe(TEST_MEMO);
       });
     });
   });

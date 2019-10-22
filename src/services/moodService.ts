@@ -1,18 +1,18 @@
 import Mood from '../models/mood';
 
 class MoodService {
-  moodList: Mood[] = [];
+  moods: Mood[] = [];
 
-  addMood(mood: Mood) {
-    this.moodList = [...this.moodList, mood];
+  createMood(mood: Mood) {
+    this.moods = [...this.moods, mood];
   }
 
   getMoods() {
-    return this.moodList;
+    return this.moods;
   }
 
   clear() {
-    this.moodList = [];
+    this.moods = [];
   }
 }
 
