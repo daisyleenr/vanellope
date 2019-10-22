@@ -1,6 +1,6 @@
 import Mood from '../models/mood';
 
-class MoodService {
+export class MoodService {
   moods: Mood[] = [];
 
   createMood(mood: Mood) {

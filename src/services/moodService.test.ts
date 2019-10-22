@@ -1,10 +1,12 @@
-import { moodService } from './moodService';
+import { MoodService } from './moodService';
 import Mood from '../models/mood';
 
 describe('MoodService', () => {
+  let moodService: MoodService;
+
   describe('getMoods', () => {
-    beforeAll(() => {
-      moodService.clear();
+    beforeEach(() => {
+      moodService = new MoodService();
     });
 
     describe('with no moods', () => {
@@ -18,7 +20,7 @@ describe('MoodService', () => {
       const TEST_MEMO = 'hello';
       const TEST_SCORE = 5;
 
-      beforeAll(() => {
+      beforeEach(() => {
         const testMood = new Mood(TEST_SCORE, TEST_MEMO);
         moodService.createMood(testMood);
       });
