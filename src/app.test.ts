@@ -7,7 +7,9 @@ describe('app', () => {
       await request(app)
         .get('/users')
         .expect('Content-Type', /json/)
-        .expect(200);
+        .expect(200, {
+          users: [],
+        });
     });
   });
 
@@ -16,7 +18,9 @@ describe('app', () => {
       await request(app)
         .get('/moods')
         .expect('Content-Type', /json/)
-        .expect(200);
+        .expect(200, {
+          moods: [],
+        });
     });
   });
 });
